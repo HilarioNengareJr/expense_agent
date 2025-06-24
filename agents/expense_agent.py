@@ -1,6 +1,6 @@
 from crewai import Agent, Task, Crew
 from llm.local_llm import get_local_llm
-from tools import add_expense, view_expenses, delete_expense, plot_expenses
+from tools.expense_tools import add_expense, view_expenses, delete_expense, plot_expenses
 
 class ExpenseAgent:
     """An agent that helps users manage their expenses by adding, viewing, deleting, and plotting spending trends."""
