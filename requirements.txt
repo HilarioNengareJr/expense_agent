@@ -1,0 +1,7 @@
+crewai
+langchain
+langchain-community
+sqlalchemy
+matplotlib
+ollama
+cls
