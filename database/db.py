@@ -1,13 +1,16 @@
+# ---------------------------------
+# Define Database functionalities
+# ---------------------------------
 import os
 import re
 from supabase import create_client
 from utils.date_parser import parse_date
 
-# Load environment variables from .env file
-class Config:
+
+class DataBase:
     """Configuration class for Supabase client.
     This class initializes the Supabase client using environment variables. 
-    It provides a method to add expenses to the database.
+    It provides a method to add expenses to the database, get all the expenes and remove an expense as well.
     """
     
     # ------------------------------
@@ -23,7 +26,7 @@ class Config:
     # ------------------------------
     def add_expense(self, text: str):
         """
-        Parses a natural command lie:
+        Parses a natural command line:
         'Add R120 groceries on June 24.' 
         and adds the expense to the supabase database.
         """
@@ -55,7 +58,7 @@ class Config:
         Returns a list of expenses.
         """
 
-        result = supabase.table("expenses").select("*").order("date", desc=True).execute() 
+        result = self.supabase.table("expenses").select("*").order("date", desc=True).execute() 
         return result.data or []
 
     #-------------------------------
